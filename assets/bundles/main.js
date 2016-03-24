@@ -34709,12 +34709,6 @@
 	        router: React.PropTypes.object.isRequired
 	    },
 
-	    getInitialState: function getInitialState() {
-	        return {
-	            error: false
-	        };
-	    },
-
 	    handleSubmit: function handleSubmit(e) {
 	        var _this = this;
 
@@ -34724,8 +34718,6 @@
 	        var pass = this.refs.pass.value;
 
 	        auth.login(username, pass, function (loggedIn) {
-	            if (!loggedIn) return _this.setState({ error: true });
-
 	            _this.context.router.replace('/app/');
 	        });
 	    },
@@ -34734,11 +34726,6 @@
 	        return React.createElement(
 	            'form',
 	            { onSubmit: this.handleSubmit },
-	            React.createElement(
-	                'span',
-	                null,
-	                this.error ? 'Try again' : ''
-	            ),
 	            React.createElement('input', { type: 'text', placeholder: 'username', ref: 'username' }),
 	            React.createElement('input', { type: 'password', placeholder: 'password', ref: 'pass' }),
 	            React.createElement('input', { type: 'submit' })

@@ -6,12 +6,6 @@ module.exports = React.createClass({
         router: React.PropTypes.object.isRequired
     },
 
-    getInitialState: function() {
-        return {
-            error: false
-        }
-    },
-
     handleSubmit: function(e) {
         e.preventDefault()
 
@@ -19,9 +13,6 @@ module.exports = React.createClass({
         var pass = this.refs.pass.value
 
         auth.login(username, pass, (loggedIn) => {
-            if (!loggedIn) 
-                return this.setState({error:true})
-            
             this.context.router.replace('/app/')
         })
     },
@@ -29,7 +20,6 @@ module.exports = React.createClass({
     render: function() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <span>{(this.error) ? 'Try again' : ''}</span>
                 <input type="text" placeholder="username" ref="username"/>
                 <input type="password" placeholder="password" ref="pass"/>
                 <input type="submit"/>
