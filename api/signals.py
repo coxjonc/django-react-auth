@@ -10,5 +10,5 @@ def init_new_user(sender, instance, signal, created, **kwargs):
     Create an authentication token for new users
     """
     if created:
-        print 'Token created'
+        print('Token created')
         Token.objects.create(user=instance)
