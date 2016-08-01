@@ -4,5 +4,5 @@ This is an example project for [my tutorial on authenticating users with React a
 
 1. `pip install -r requirements.txt`
 2. `npm install`
-3. `./node_modules/.bin/webpack --config webpack.config.js`
+3. `npm run build`
 4. `python manage.py runserver`
