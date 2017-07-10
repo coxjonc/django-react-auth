@@ -5,6 +5,12 @@ module.exports = React.createClass({
     contextTypes: {
         router: React.PropTypes.object.isRequired
     },
+    
+    getInitialState = () => {
+        return {
+          login_error: false
+        }
+      }
 
     handleSubmit: function(e) {
         e.preventDefault()
@@ -13,7 +19,11 @@ module.exports = React.createClass({
         var pass = this.refs.pass.value
 
         auth.login(username, pass, (loggedIn) => {
-            this.context.router.replace('/app/')
+            if (loggedIn) {
+                this.context.router.replace('/app/')
+            } else {
+                this.setState({login_error:true})
+            }
         })
     },
     
