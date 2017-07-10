@@ -35,6 +35,11 @@ module.exports = {
                     authenticated: true,
                     token: res.token
                 })
+            },
+            error: (xhr, status, err) => {
+                cb({
+                    authenticated: false
+                })
             }
         })
     }, 
