@@ -1,12 +1,14 @@
-{% load staticfiles %}
+{% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Django React Auth</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 </head>
 <body>
     <div id="app"></div>
-    <script src="{% static 'bundles/main.js' %}"></script>
+    {% render_bundle 'main' %}
+
 </body>
 </html>
