@@ -6,11 +6,11 @@ module.exports = React.createClass({
         router: React.PropTypes.object.isRequired
     },
     
-    getInitialState = () => {
+    getInitialState: function() {
         return {
           login_error: false
         }
-      }
+      },
 
     handleSubmit: function(e) {
         e.preventDefault()
